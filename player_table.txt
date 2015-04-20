@@ -1,0 +1,10 @@
+    \begin{table}[h,t]
+        \caption{ PLAYER_NAME }
+        \begin{tabular}{ TABLE_SPEC }
+            \hline
+            HEADER
+            \hline \hline
+            DATA_LINE
+            \hline
+        \end{tabular}
+    \end{table}

@@ -1,0 +1,33 @@
+
+\documentclass{article}
+\usepackage{graphicx}
+
+\begin{document}
+
+\begin{center}
+    \includegraphics[scale=.40]{Header.png} \\
+\end{center}
+
+\section*{Trade Proposal}
+
+    This stat sheet has been automatically generated to give a quick overview of the players involved in the following trade:
+
+    \begin{itemize}
+
+        \item You send:
+        \begin{enumerate}
+            SENT_PLAYER
+        \end{enumerate}
+
+        \item You receive:
+        \begin{enumerate}
+            RECEIVED_PLAYER
+        \end{enumerate}
+
+    \end{itemize}
+
+    PLAYER_TABLE
+
+    \textit{note: the resources being used to retreive official stats are still incomplete, therefore the generated fantasy points are generally close but not necessarily exact.}
+
+\end{document}
