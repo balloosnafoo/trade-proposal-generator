@@ -13,10 +13,10 @@ def export_as_tex(data):
     for line in f:
         if re.search(r"SENT_PLAYER", line):
             for player in sent_players:
-                w.write("\item " + player + "\n")
+                w.write("\item " + player.name + ", " + player.team + "\n")
         elif re.search(r"RECEIVED_PLAYER", line):
             for player in recd_players:
-                w.write("\item " + player + "\n")
+                w.write("\item " + player.name + ", " + player.team + "\n")
         elif re.search(r"PLAYER_TABLE", line):
             for i in range(len(sent_players)):
                 create_player_table(w, sent_players[i], data_sp[i])
@@ -42,10 +42,11 @@ def create_player_table(write_file, player, player_data):
         elif re.search(r"TABLE_SPEC", line):
             string = "l|"
             string += "c" * len(player_data[0])
+            string = string[0:-1] + "|" + string[-1] + "|"
             line = re.sub(r"TABLE_SPEC", string, line)
             write_file.write(line)
         elif re.search(r"PLAYER_NAME", line):
-            line = re.sub(r"PLAYER_NAME", player, line)
+            line = re.sub(r"PLAYER_NAME", player.name, line)
             write_file.write(line)
         else:
             write_file.write(line)
