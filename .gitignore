@@ -1,0 +1,6 @@
+# Ignore the following
+/*.png
+/result.*
+
+# Do not ignore this file
+!.gitignore
