@@ -5,7 +5,7 @@
 \begin{document}
 
 \begin{center}
-    \includegraphics[scale=.40]{Header.png} \\
+    \includegraphics[scale=.30]{output/Header.png} \\
 \end{center}
 
 \section*{Trade Proposal}
@@ -25,6 +25,16 @@
         \end{enumerate}
 
     \end{itemize}
+
+POSITION_SECTION
+\section*{Positional Stats}
+
+    POSITION_TABLE
+POSITION_SECTION
+
+\section*{Weekly Stats}
+
+    Important weekly stats are presented here, as well as an estimation of fantasy points, based on our league rules. If you would think that an important category has been ommitted, please let me know, categories are relatively easy to change.
 
     PLAYER_TABLE
 

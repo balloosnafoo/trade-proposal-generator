@@ -13,8 +13,8 @@ create_html = False
 
 def get_qb_stats(player_stats):
     stats = []
-    if player_stats == "BYE":
-        stats = ["BYE", "BYE", "BYE", "BYE", "BYE"]
+    if type(player_stats) == str:
+        stats = [player_stats] * 5
     else:
         stats.append(player_stats.passing_yds)
         stats.append(player_stats.rushing_yds)
@@ -25,8 +25,8 @@ def get_qb_stats(player_stats):
 
 def get_wr_stats(player_stats):
     stats = []
-    if player_stats == "BYE":
-        stats = ["BYE", "BYE", "BYE"]
+    if type(player_stats) == str:
+        stats = [player_stats] * 3
     else:
         stats.append(player_stats.receiving_yds)
         stats.append(player_stats.receiving_rec)
@@ -34,8 +34,8 @@ def get_wr_stats(player_stats):
     return stats
 
 def get_rb_stats(player_stats):
-    if player_stats == "BYE":
-        stats = ["BYE", "BYE", "BYE", "BYE", "BYE"]
+    if type(player_stats) == str:
+        stats = [player_stats] * 5
     else:
         stats = []
         stats.append(player_stats.rushing_yds)
@@ -46,8 +46,8 @@ def get_rb_stats(player_stats):
     return stats
 
 def get_te_stats(player_stats):
-    if player_stats == "BYE":
-        stats = ["BYE", "BYE", "BYE"]
+    if type(player_stats) == str:
+        stats = [player_stats] * 3
     else:
         stats = []
         stats.append(player_stats.receiving_yds)
@@ -84,6 +84,8 @@ def get_player_stats(player):
             game = nfl.games(year, w, home=team, away=team)
             players = nfl.combine(game)
             player_game_stats = players.name(player.gsis_name)
+            if not player_game_stats:
+                player_game_stats = "DNP"
         except:
             player_game_stats = "BYE"
         stats.append(STAT_FUNCTIONS[player.position](player_game_stats))
@@ -113,6 +115,10 @@ def get_all_player_stats():
     return data_sp, data_rp
 
 def score_player(player_stats, position):
+    if player_stats == "BYE":
+        return "BYE"
+    elif player_stats == "DNP":
+        return "DNP"
     score = 0
     for item in REL_STATS[position]:
         try:
