@@ -1,6 +1,6 @@
 
 import re
-from trade_parameters import closing_argument
+from trade_parameters import header, closing_argument
 
 def export_as_tex(data):
 
@@ -33,9 +33,12 @@ def export_as_tex(data):
             if likes:
                 continue
             write = not write
-        elif re.search(R"CLOSING_ARGUMENT", line):
+        elif re.search(r"CLOSING_ARGUMENT", line):
             if closing_argument:
                 write_closing_argument(w)
+        elif re.search(r"HEADER", line):
+            if header:
+                write_header(w)
         else:
             if write:
                 w.write(line)
@@ -165,6 +168,12 @@ def write_closing_argument(write_file):
     for line in c:
         write_file.write(line)
     c.close()
+
+def write_header(write_file):
+    h = open("templates/header.txt", "r")
+    for line in h:
+        write_file.write(line)
+    h.close()
 
 def compare_averages(ave_stats):
     """

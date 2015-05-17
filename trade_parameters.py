@@ -20,4 +20,8 @@ recd_players = [
 
 # Make this True if you would like to include a closing argument. Closing argument
 # template can be found in /templates/closing_argument.txt
-closing_argument = True
+closing_argument = False
+
+# If you would like to include a banner (goes in the output folder as Header.png)
+# Might require some messing around to correctly size the image in the pdf.
+header = False

@@ -1,0 +1,3 @@
+\begin{center}
+    \includegraphics[scale=.30]{output/Header.png} \\
+\end{center}

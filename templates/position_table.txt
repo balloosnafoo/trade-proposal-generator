@@ -1,6 +1,8 @@
     This table presents weekly averages from the season so far. Due to technical limitations, it currently does not include weeks in which a player did not play (due to injury or otherwise), but it does include games that players did not finish. This seems to be a good way to take nagging injuries into account while mostly ignoring those that take a player out for a limited number of weeks.
 
+    
     \begin{table}[h,t]
+        \centering
         \caption{ TITLE }
         \begin{tabular}{ TABLE_SPEC }
             \hline

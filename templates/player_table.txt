@@ -1,4 +1,5 @@
     \begin{table}[h,t]
+        \centering
         \caption{ PLAYER_NAME }
         \begin{tabular}{ TABLE_SPEC }
             \hline

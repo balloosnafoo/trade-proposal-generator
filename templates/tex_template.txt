@@ -1,12 +1,11 @@
 
 \documentclass{article}
 \usepackage{graphicx}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
 
 \begin{document}
 
-\begin{center}
-    \includegraphics[scale=.30]{output/Header.png} \\
-\end{center}
+HEADER
 
 \section*{Trade Proposal}
 

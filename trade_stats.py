@@ -9,7 +9,7 @@ from points_system import *
 create_tex  = True
 create_html = False # HTML output is unfinished, don't set to True
 
-# Positional stat getting functions (TODO: make not ugly)
+# Positional stat getting functions
 def get_qb_stats(player_stats):
     stats = []
     if type(player_stats) == str:

@@ -1,6 +1,7 @@
 # Ignore the following
 /output/*.png
 /output/result.*
+*.pyc
 
 # Do not ignore this file
 !.gitignore
