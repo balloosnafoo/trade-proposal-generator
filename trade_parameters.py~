@@ -18,6 +18,4 @@ recd_players = [
     "Jerick McKinnon, MIN"
 ]
 
-# Make this True if you would like to include a closing argument. Closing argument
-# template can be found in /templates/closing_argument.txt
-closing_argument = True
+

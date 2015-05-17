@@ -163,7 +163,7 @@ def filter_data_by_pos(position, data):
 def write_closing_argument(write_file):
     c = open("templates/closing_argument.txt", "r")
     for line in c:
-        write_file.write(line)
+        w.write(line)
     c.close()
 
 def compare_averages(ave_stats):

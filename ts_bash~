@@ -10,4 +10,4 @@ rm result.log
 
 clear
 
-echo "Trade sheet can be found at ./result.pdf"
+echo "Trade sheet can be found at ./result.pdf
