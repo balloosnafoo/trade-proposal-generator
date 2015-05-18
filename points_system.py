@@ -2,7 +2,7 @@
 import nflgame as nfl
 from trade_parameters import *
 
-# Actual vals are multiplied by 100 because I don't want to fuck with floats
+# Actual values are multiplied by 100 because I don't want to fuck with floats
 # e.g. .1 points per yard is listed as 10
 VALUES = {
     "passing_yds"   : 4,
@@ -30,7 +30,8 @@ wr = [
     "rushing_tds",
     "receiving_yds",
     "receiving_rec",
-    "receiving_tds"
+    "receiving_tds",
+    "fumbles_lost"
 ]
 
 rb = wr

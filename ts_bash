@@ -5,9 +5,6 @@ echo "...CREATING TRADE PROPOSAL"
 python trade_stats.py
 pdflatex output/result.tex
 
-rm result.aux
-rm result.log
-
 clear
 
 echo "Trade sheet can be found at ./result.pdf"

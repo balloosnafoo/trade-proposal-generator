@@ -5,7 +5,7 @@
 
 \begin{document}
 
-HEADER
+{{ HEADER }}
 
 \section*{Trade Proposal}
 
@@ -15,30 +15,30 @@ HEADER
 
         \item You send:
         \begin{enumerate}
-            SENT_PLAYER
+            {{ SENT_PLAYER }}
         \end{enumerate}
 
         \item You receive:
         \begin{enumerate}
-            RECEIVED_PLAYER
+            {{ RECEIVED_PLAYER }}
         \end{enumerate}
 
     \end{itemize}
 
-POSITION_SECTION
+{{ POSITION_SECTION }}
 \section*{Positional Stats}
 
-    POSITION_TABLE
-POSITION_SECTION
+    {{ POSITION_TABLE }}
+{{ POSITION_SECTION }}
 
 \section*{Weekly Stats}
 
     Important weekly stats are presented here, as well as an estimation of fantasy points, based on our league rules. If you would think that an important category has been ommitted, please let me know, categories are relatively easy to change.
 
-    PLAYER_TABLE
+    {{ PLAYER_TABLE }}
 
     \textit{note: the resources being used to retreive official stats are still incomplete, therefore the generated fantasy points are generally close but not necessarily exact.}
 
-CLOSING_ARGUMENT
+{{ CLOSING_ARGUMENT }}
 
 \end{document}

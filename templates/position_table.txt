@@ -3,12 +3,12 @@
     
     \begin{table}[h,t]
         \centering
-        \caption{ TITLE }
-        \begin{tabular}{ TABLE_SPEC }
+        \caption{ {{ TITLE }} }
+        \begin{tabular}{ {{ TABLE_SPEC }} }
             \hline
-            HEADER
+            {{ HEADER }}
             \hline \hline
-            DATA_LINE
+            {{ DATA_LINE }}
             \hline
         \end{tabular}
     \end{table}

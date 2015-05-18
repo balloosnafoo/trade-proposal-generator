@@ -15,58 +15,63 @@ def export_as_tex(data):
 
     write = True
     for line in f:
-        if re.search(r"SENT_PLAYER", line):
+        match = re.search(r"{{(.*)}}", line)
+        if not match and write:
+            w.write(line)
+            continue
+        match = match.group(1).strip()
+        if   match == "SENT_PLAYER":
             for player in sent_players:
                 w.write("\item " + player.name + ", " + player.team + "\n")
-        elif re.search(r"RECEIVED_PLAYER", line):
+        elif match == "RECEIVED_PLAYER":
             for player in recd_players:
                 w.write("\item " + player.name + ", " + player.team + "\n")
-        elif re.search(r"PLAYER_TABLE", line):
+        elif match == "PLAYER_TABLE":
             for i in range(len(sent_players)):
                 create_player_table(w, sent_players[i], data_sp[i])
             for i in range(len(recd_players)):
                 create_player_table(w, recd_players[i], data_rp[i])
-        elif re.search(r"POSITION_TABLE", line) and likes:
+        elif match == "POSITION_TABLE" and likes:
             for position in likes:
                 create_position_table(w, data, position)
-        elif re.search(r"POSITION_SECTION", line):
+        elif match == "POSITION_SECTION":
             if likes:
                 continue
             write = not write
-        elif re.search(r"CLOSING_ARGUMENT", line):
+        elif match == "CLOSING_ARGUMENT":
             if closing_argument:
                 write_closing_argument(w)
-        elif re.search(r"HEADER", line):
+        elif match == "HEADER":
             if header:
                 write_header(w)
-        else:
-            if write:
-                w.write(line)
     f.close()
     w.close()
 
 def create_player_table(write_file, player, player_data):
     template = open("templates/player_table.txt", "r")
     for line in template:
-        if re.search(r"DATA_LINE", line):
+        match = re.search(r"{{(.*)}}", line)
+        if not match:
+            write_file.write(line)
+            continue
+        match = match.group(1).strip()
+        if match == "DATA_LINE":
             for row in player_data[1:]:
                 row_to_string(row)
                 string  = "Week " + str(player_data.index(row)) + " & " 
                 string += " & ".join(row) + "\\\\"
                 write_file.write(string + "\n")
-        elif re.search(r"HEADER", line):
+        elif match == "HEADER":
             string = " & " + " & ".join(player_data[0]) + "\\\\"
             write_file.write(string + "\n")
-        elif re.search(r"TABLE_SPEC", line):
+        elif match == "TABLE_SPEC":
             string = "l|"
             string += "c" * len(player_data[0])
             string = string[0:-1] + "|" + string[-1] + "|"
-            line = re.sub(r"TABLE_SPEC", string, line)
+            line = re.sub(r"{{.*}}", string, line)
             write_file.write(line)
-        elif re.search(r"PLAYER_NAME", line):
-            line = re.sub(r"PLAYER_NAME", player.name, line)
-            write_file.write(line)
-        else:
+        elif match == "PLAYER_NAME":
+            line = re.sub(r"{{.*}}", player.name, line)
             write_file.write(line)
     template.close()
 
@@ -74,7 +79,12 @@ def create_position_table(write_file, data, position):
     table_data = filter_data_by_pos(position, data)
     template = open("templates/position_table.txt", "r")
     for line in template:
-        if re.search(r"DATA_LINE", line):
+        match = re.search(r"{{(.*)}}", line)
+        if not match:
+            write_file.write(line)
+            continue
+        match = match.group(1).strip()
+        if match == "DATA_LINE":
             for i in range(len(table_data)):
                 player = table_data[i][0]
                 if table_data[i] == "---":
@@ -85,20 +95,18 @@ def create_position_table(write_file, data, position):
                     row_to_string(ave_stats)
                     string += " & ".join(ave_stats) + "\\\\"
                     write_file.write(string + "\n")
-        elif re.search(r"HEADER", line):
+        elif match == "HEADER":
             string = " & " + " & ".join(table_data[0][1][0]) + "\\\\"
             write_file.write(string + "\n")
-        elif re.search(r"TABLE_SPEC", line):
+        elif match == "TABLE_SPEC":
             string =  "l|"
             string += "c" * len(table_data[0][1][0])
             string = string[0:-1] + "|" + string[-1] + "|"
-            line = re.sub(r"TABLE_SPEC", string, line)
+            line = re.sub(r"{{.*}}", string, line)
             write_file.write(line)
-        elif re.search(r"TITLE", line):
+        elif match == "TITLE":
             string = table_data[0][0].position + " Comparison"
-            line = re.sub(r"TITLE", string, line)
-            write_file.write(line)
-        else:
+            line = re.sub(r"{{.*}}", string, line)
             write_file.write(line)
     template.close()
 
