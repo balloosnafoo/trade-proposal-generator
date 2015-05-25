@@ -9,7 +9,7 @@
 
 \section*{Trade Proposal}
 
-    This stat sheet has been automatically generated to give a quick overview of the players involved in the following trade:
+    This stat sheet has been automatically generated\footnote{The resources being used to retreive official stats are not informed by post-game corrections, therefore the generated fantasy points are generally close but not necessarily exact.} to give a quick overview of the players involved in the following trade:
 
     \begin{itemize}
 
@@ -27,6 +27,7 @@
 
 {{ POSITION_SECTION }}
 \section*{Positional Stats}
+    {{ POSITION_TEXT }}
 
     {{ POSITION_TABLE }}
 {{ POSITION_SECTION }}
@@ -36,8 +37,6 @@
     Important weekly stats are presented here, as well as an estimation of fantasy points, based on our league rules. If you would think that an important category has been ommitted, please let me know, categories are relatively easy to change.
 
     {{ PLAYER_TABLE }}
-
-    \textit{note: the resources being used to retreive official stats are still incomplete, therefore the generated fantasy points are generally close but not necessarily exact.}
 
 {{ CLOSING_ARGUMENT }}
 

@@ -2,6 +2,9 @@
 /output/*.png
 /output/result.*
 *.pyc
+*.log
+*.aux
+*~
 
 # Do not ignore this file
 !.gitignore

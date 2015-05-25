@@ -9,13 +9,15 @@ week = 10 # Number of the next unplayed week
 # players on one team, the program may currently produce an error.
 
 sent_players = [
-    "DeMarco Murray, DAL"
+    "DeMarco Murray, DAL",
+    "Tom Brady, NE"
 ]
 
 recd_players = [
     "Giovani Bernard, CIN",
     "Andre Ellington, ARI",
-    "Jerick McKinnon, MIN"
+    "Jerick McKinnon, MIN",
+    "Peyton Manning, DEN"
 ]
 
 # Make this True if you would like to include a closing argument. Closing argument

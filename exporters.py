@@ -38,6 +38,11 @@ def export_as_tex(data):
             if likes:
                 continue
             write = not write
+        elif match == "POSITION_TEXT":
+            t = open("templates/position_text.txt", "r")
+            for line in t:
+                w.write(line)
+            t.close()
         elif match == "CLOSING_ARGUMENT":
             if closing_argument:
                 write_closing_argument(w)
@@ -65,7 +70,7 @@ def create_player_table(write_file, player, player_data):
             string = " & " + " & ".join(player_data[0]) + "\\\\"
             write_file.write(string + "\n")
         elif match == "TABLE_SPEC":
-            string = "l|"
+            string = "|l|"
             string += "c" * len(player_data[0])
             string = string[0:-1] + "|" + string[-1] + "|"
             line = re.sub(r"{{.*}}", string, line)
@@ -99,7 +104,7 @@ def create_position_table(write_file, data, position):
             string = " & " + " & ".join(table_data[0][1][0]) + "\\\\"
             write_file.write(string + "\n")
         elif match == "TABLE_SPEC":
-            string =  "l|"
+            string =  "|l|"
             string += "c" * len(table_data[0][1][0])
             string = string[0:-1] + "|" + string[-1] + "|"
             line = re.sub(r"{{.*}}", string, line)
